@@ -22,6 +22,7 @@ class RusTattoo:
                        'url_photo': item.find('enclosure').get('url'),
                        'like': 0,
                        'dislike': 0}
+                break
         return new
 
     # def download_image(self, url):
