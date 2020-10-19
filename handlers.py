@@ -29,7 +29,16 @@ async def new_post(m: Message):
             await bot.send_photo(
                 s[1],
                 new_publication['url_photo'],
-                caption=('[Смотреть]({0})'.format(new_publication['link'])),
+                caption=('[Смотреть]({0})'
+                         '\nАвтор: [{1}]({2}) \([{3}]({4})\)'
+                         '{5}'
+                         '{6}'.format(new_publication['link'],
+                                      new_publication['author'],
+                                      new_publication['author_url'],
+                                      new_publication['city'],
+                                      new_publication['city_url'],
+                                      new_publication['description'],
+                                      new_publication['pub_date'])),
                 disable_notification=True,
                 parse_mode='MarkdownV2',
                 reply_markup=keyboard
